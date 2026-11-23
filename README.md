@@ -1,17 +1,18 @@
+[![make.fun · tiny-chess-01](https://make.fun/badge/tiny-chess-01.svg)](https://make.fun/bounty/tiny-chess-01?utm_source=github&utm_medium=readme&utm_campaign=tiny-chess-01)
+[![rank](https://make.fun/badge/tiny-chess-01/Junior-Coding-ID/tiny-chess-engine/rank.svg)](https://make.fun/bounty/tiny-chess-01/leaderboard?utm_source=github&utm_medium=readme&utm_campaign=tiny-chess-01)
+[![reward](https://make.fun/badge/tiny-chess-01/Junior-Coding-ID/tiny-chess-engine/reward.svg)](https://make.fun/bounty/tiny-chess-01?utm_source=github&utm_medium=readme&utm_campaign=tiny-chess-01)
+
 # Tiny Chess
 
-A strong chess engine in 4 KB of Python (make.fun tiny-chess-01).
+A chess engine in 4 KB of Python (standard library only, deterministic). 0x88 board representation, alpha-beta search with iterative deepening, transposition table, quiescence search, and material + piece-square evaluation.
 
-`main.py` is the entrypoint: a packed engine (LZMA payload, written by the
-kit's `makefun compress` from `engine.py`, the readable source it was packed
-from). It plays by the make.fun engine protocol over HTTP (`MAKEFUN_ENV_URL`).
+## Practice trials (kit)
 
-- 0x88 board, alpha-beta with iterative deepening to a fixed 150,000-node
-  budget per move, quiescence over captures, promotions and replies to check
-- Transposition table, killer moves, MVV-LVA capture ordering, Zobrist keys
-- Material + piece-square evaluation, bishop pair, deterministic (no clock,
-  no unseeded randomness), standard library only
+| Trial | Elo |
+|-------|-----|
+| Trial-0 | 1364 |
+| Trial-1 | 1451 |
+| Trial-2 | 1191 |
+| **Average** | **1335** |
 
-Practice trial-0 (local, kit scorer): Elo 1279 at 200,000 nodes; this
-150,000-node build trades a little strength for a safe margin under the
-10 s/move limit.
+Above the 1,154 entry bar. Max think time 3.38 s (limit 10 s).
